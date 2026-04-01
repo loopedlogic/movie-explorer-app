@@ -1,22 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Movie Explorer</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <nav class="navbar">
+    <div class="logo">🎬 Movie Explorer</div>
 
-  <header>
-    <h1>🎬 Movie Explorer</h1>
-  </header>
+    <div class="nav-actions">
+      <input type="text" id="searchInput" placeholder="Search movies..." />
+      <button id="watchlistBtn">Watchlist</button>
+    </div>
+  </nav>
 
-  <main>
+  <section class="hero" id="heroSection">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-label">Trending Now</p>
+      <h1 id="heroTitle">Loading...</h1>
+      <p id="heroOverview"></p>
+      <button class="hero-btn">Explore Movies</button>
+    </div>
+  </section>
+
+  <section class="controls">
+    <select id="genreFilter">
+      <option value="all">All Genres</option>
+    </select>
+
+    <select id="sortMovies">
+      <option value="popular">Most Popular</option>
+      <option value="rating">Highest Rated</option>
+      <option value="latest">Latest Release</option>
+    </select>
+  </section>
+
+  <section class="movies-section">
+    <h2>Popular Movies</h2>
     <p id="loading">Loading movies...</p>
-    <div id="movies-container"></div>
-  </main>
+    <div id="moviesContainer" class="movies-grid"></div>
+  </section>
 
   <script src="script.js"></script>
 </body>
-</html>
+</html> http://localhost:5173/
