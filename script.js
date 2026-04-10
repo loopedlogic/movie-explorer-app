@@ -1,4 +1,4 @@
-const API_KEY = "bf2f023305ac3e65dbdec674e99f8d43";
+const API_KEY = import.meta.env?.VITE_TMDB_API_KEY || "bf2f023305ac3e65dbdec674e99f8d43";
 const BASE_URL = "https://api.themoviedb.org/3";
 const POSTER_URL = "https://image.tmdb.org/t/p/w500";
 const BACKDROP_URL = "https://image.tmdb.org/t/p/w1280";
@@ -38,6 +38,10 @@ let watchlistMovies = JSON.parse(localStorage.getItem(WATCHLIST_KEY) || "[]");
 const movieDetailsCache = new Map();
 
 function fetchFromTMDB(path, params = {}, controller) {
+  if (!API_KEY) {
+    throw new Error("Missing TMDB API key. Set VITE_TMDB_API_KEY before deploying.");
+  }
+
   const url = new URL(`${BASE_URL}${path}`);
   const searchParams = new URLSearchParams({
     api_key: API_KEY,
@@ -508,6 +512,7 @@ async function fetchGenres() {
       ${allGenres.map((genre) => `<option value="${genre.id}">${genre.name}</option>`).join("")}
     `;
   } catch (error) {
+    showListStatus("We couldn't load movie genres.", "error", false);
     console.error(error);
   }
 }
