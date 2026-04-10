@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Movie Explorer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <nav class="navbar">
+      <div class="logo-wrap">
+        <div class="logo-mark">M</div>
+        <div>
+          <p class="logo-kicker">Now Streaming</p>
+          <div class="logo">Movie Explorer</div>
+        </div>
+      </div>
+
+      <div class="nav-actions">
+        <label class="search-wrap" for="searchInput">
+          <span>Search</span>
+          <input type="text" id="searchInput" placeholder="Search movies..." />
+        </label>
+        <button id="watchlistBtn" type="button">Watchlist <span id="watchlistCount">0</span></button>
+      </div>
+    </nav>
+
+    <main>
+      <section class="hero" id="heroSection">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <p class="hero-label">Featured Tonight</p>
+          <h1 id="heroTitle">Loading...</h1>
+          <p id="heroOverview"></p>
+
+          <div class="hero-meta" id="heroMeta">
+            <span id="heroRating">Loading</span>
+            <span id="heroYear">Movie</span>
+            <span id="heroGenres">Cinema</span>
+          </div>
+
+          <div class="hero-actions">
+            <button class="hero-btn" id="heroExploreBtn" type="button">Browse Collection</button>
+            <button class="hero-btn hero-btn-secondary" id="heroWatchlistBtn" type="button">Save to Watchlist</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="controls">
+        <div class="section-copy">
+          <p class="eyebrow">Curated Discoveries</p>
+          <h2>Explore what people are watching right now.</h2>
+        </div>
+
+        <div class="control-group">
+          <select id="genreFilter">
+            <option value="all">All Genres</option>
+          </select>
+
+          <select id="sortMovies">
+            <option value="popular">Most Popular</option>
+            <option value="rating">Highest Rated</option>
+            <option value="latest">Latest Release</option>
+          </select>
+        </div>
+      </section>
+
+      <section class="movies-section" id="moviesSection">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Popular Picks</p>
+            <h2>Discover your next favorite movie</h2>
+          </div>
+          <p id="loading">Loading movies...</p>
+        </div>
+
+        <div id="moviesContainer" class="movies-grid"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
