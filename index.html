@@ -25,7 +25,7 @@
           <span>Search</span>
           <input type="text" id="searchInput" placeholder="Search movies..." />
         </label>
-        <button id="watchlistBtn" type="button">Watchlist <span id="watchlistCount">0</span></button>
+        <button id="watchlistBtn" type="button">View Watchlist <span id="watchlistCount">0</span></button>
       </div>
     </nav>
 
@@ -75,12 +75,39 @@
             <p class="eyebrow">Popular Picks</p>
             <h2>Discover your next favorite movie</h2>
           </div>
-          <p id="loading">Loading movies...</p>
+          <div class="loading-wrap">
+            <div class="loading-spinner is-hidden" id="loadingSpinner" aria-hidden="true"></div>
+            <p id="loading">Loading movies...</p>
+          </div>
         </div>
 
         <div id="moviesContainer" class="movies-grid"></div>
       </section>
     </main>
+  </div>
+
+  <div class="modal is-hidden" id="movieModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close="movieModal"></div>
+    <div class="modal-dialog modal-dialog-wide" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" data-close="movieModal" aria-label="Close movie details">&times;</button>
+      <div class="modal-body" id="movieModalBody"></div>
+    </div>
+  </div>
+
+  <div class="modal is-hidden" id="watchlistModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close="watchlistModal"></div>
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="watchlistTitle">
+      <button class="modal-close" type="button" data-close="watchlistModal" aria-label="Close watchlist">&times;</button>
+      <div class="modal-header">
+        <div>
+          <p class="eyebrow">Saved Picks</p>
+          <h2 id="watchlistTitle">Your Watchlist</h2>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="watchlist-grid" id="watchlistContainer"></div>
+      </div>
+    </div>
   </div>
 
   <script src="script.js"></script>
